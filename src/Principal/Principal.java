@@ -94,7 +94,7 @@ public class Principal {
 
             return rates.getDouble(moneda);
         } catch (Exception e) {
-            System.out.println("hubo algun error");;
+            System.out.println("hubo algun error");
             return -1;
         }
     }
