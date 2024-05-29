@@ -3,6 +3,7 @@ package Principal;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +73,8 @@ public class Principal {
 
     private static double obtenerTasaCambio(String moneda) {
         try {
-            URL url = new URL(API_URL);
+            URI uri = URI.create(API_URL);
+            URL url = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -92,7 +94,7 @@ public class Principal {
 
             return rates.getDouble(moneda);
         } catch (Exception e) {
-            System.out.println("hubo algun error");
+            System.out.println("hubo algun error");;
             return -1;
         }
     }
